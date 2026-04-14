@@ -1,20 +1,27 @@
 
 @import "tailwindcss";
 
-
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary: #0ea5e9;
   --color-primary-hover: #0284c7;
   --color-sidebar-bg: #0ea5e9;
   --color-body-bg: #f8fafc;
+  --color-body-text: #1e293b;
+}
+
+/* Dark mode variable overrides */
+.dark {
+  --color-body-bg: #0f172a;
+  --color-body-text: #f1f5f9;
 }
 
 body {
   background-color: var(--color-body-bg);
-  color: #1e293b;
+  color: var(--color-body-text);
   font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
