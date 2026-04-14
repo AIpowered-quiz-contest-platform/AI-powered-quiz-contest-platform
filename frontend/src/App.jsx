@@ -22,15 +22,16 @@ function AppRoutes() {
         <Route path='/' element={<LoginPage onLogin={() => navigate('/intern')} onAdminClick={() => navigate('/admin-login')} />} />
         <Route path='/admin-login' element={<AdminLoginPage onLogin={() => navigate('/reports')} onBackClick={() => navigate('/')} />} />
         <Route path='/quiz' element={<QuizPage />} />
-        
+
         <Route element={<MainLayout />} >
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/reports" element={<DomainReport />} />
           <Route path="/intern" element={<InternDashboard />} />
           <Route path="/rewards" element={<Rewards />} />
           <Route path="/questions" element={<QuestionBank />} />
+          <Route path='/quizs' element={<QuizPage />} />
           <Route path='/profile' element={<ProfilePage />} />
-<Route path="/contests" element={<CreateContest />} />
+          <Route path="/contests" element={<CreateContest />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

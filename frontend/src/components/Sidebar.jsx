@@ -21,6 +21,7 @@ const Sidebar = ({ isOpen, onClose }) => {
     { name: "Leaderboard", path: "/leaderboard" },
     { name: "Contests", path: "/contests" },
     { name: "Question Bank", path: "/questions" },
+    { name: "All Quiz", path: "/quizs" },
     { name: "Rewards", path: "/rewards" },
     { name: "Profile", path: "/profile" },
   ];
