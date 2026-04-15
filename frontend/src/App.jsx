@@ -15,28 +15,60 @@ import ReviewQuiz from './pages/ReviewQuiz';
 import AllInterns from './pages/AllInterns';
 import UploadInterns from './pages/UploadInterns';
 import MyQuizzes from './pages/MyQuizzes';
+import Rewards from './pages/Rewards';
+import QuestionBank from './pages/QuestionBank';
 
 function AppRoutes() {
   const navigate = useNavigate();
+
   return (
     <div className="app-container">
       <Routes>
-        <Route path='/' element={<LoginPage onLogin={() => navigate('/intern')} onAdminClick={() => navigate('/admin-login')} />} />
-        <Route path='/admin-login' element={<AdminLoginPage onLogin={() => navigate('/all-interns')} onBackClick={() => navigate('/')} />} />
-        <Route path='/quiz' element={<QuizPage />} />
-        
-        <Route element={<MainLayout />} >
+
+        <Route
+          path="/"
+          element={
+            <LoginPage
+              onLogin={() => navigate('/intern')}
+              onAdminClick={() => navigate('/admin-login')}
+            />
+          }
+        />
+
+        <Route
+          path="/admin-login"
+          element={
+            <AdminLoginPage
+              onLogin={() => navigate('/all-interns')}
+              onBackClick={() => navigate('/')}
+            />
+          }
+        />
+
+        <Route path="/quiz" element={<QuizPage />} />
+
+        <Route element={<MainLayout />}>
+
+          <Route path="/intern" element={<InternDashboard />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/reports" element={<DomainReport />} />
-          <Route path="/intern" element={<InternDashboard />} />
+
+          <Route path="/questions" element={<QuestionBank />} />
+          <Route path="/rewards" element={<Rewards />} />
+
+          <Route path="/create-contest" element={<CreateContest />} />
           <Route path="/my-quizzes" element={<MyQuizzes />} />
-          <Route path='/profile' element={<ProfilePage />} />
-<Route path="/create-contest" element={<CreateContest />} />
           <Route path="/review-quiz" element={<ReviewQuiz />} />
+
           <Route path="/all-interns" element={<AllInterns />} />
           <Route path="/upload-interns" element={<UploadInterns />} />
+
+          <Route path="/profile" element={<ProfilePage />} />
+
           <Route path="*" element={<NotFound />} />
+
         </Route>
+
       </Routes>
     </div>
   );
